@@ -3,7 +3,17 @@ import React from "react";
 import IconButton from "@/components/Button/IconButton";
 import {AntDesign} from "@expo/vector-icons";
 import PrimaryButton from "@/components/Button/PrimaryButton";
+import {useNavigation, useRouter} from "expo-router";
 const Onboarding = () => {
+    const router = useRouter();
+
+    const handleNavigationToAuth = (routeName:String) => {
+        if(routeName === 'Login') {
+            router.push('/auth/Login')
+        }else {
+            router.push('/auth/SignUp')
+        }
+    }
     return (
         <SafeAreaView style={styles.container}>
             <Image style={styles.img} src={require('@/assets/images/Mosic.png')}/>
@@ -11,12 +21,12 @@ const Onboarding = () => {
             <IconButton Icon={AntDesign} iconName={"google"} iconSize={26} iconColor={'white'} label={'Google'}/>
             <IconButton Icon={AntDesign} iconName={"google"} iconSize={26} iconColor={'white'} label={'Google'}/>
             <View style={styles.bottomCTA}>
-                <PrimaryButton onPress={() => {}} label={'Log in'}/>
+                <PrimaryButton onPress={handleNavigationToAuth.bind(null,'Login')} label={'Log in'}/>
             </View>
 
             <View style={styles.noAccount}>
                 <Text style={styles.noText}>No account?</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={handleNavigationToAuth.bind(null,'SignUp')}>
                     <Text style={styles.createText}>Create one</Text>
                 </TouchableOpacity>
             </View>

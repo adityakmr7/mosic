@@ -18,7 +18,7 @@ interface IconButtonProps{
 const IconButton: React.FC<IconButtonProps> = ({ Icon,iconName, iconSize, iconColor, label, onPress,style={} }) => {
     return (
         <TouchableOpacity style={[styles.button,style.container]} onPress={onPress}>
-            <View style={styles.iconContainer}>
+            <View style={[styles.iconContainer]}>
                 <Icon name={iconName} size={iconSize} color={iconColor} />
                 <Text style={styles.label}>{label}</Text>
             </View>
@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#000', // You can adjust the background color
         width:'100%',
-        marginBottom:16
+        marginBottom:16,
+        justifyContent:'center'
     },
     iconContainer: {
         flexDirection: 'row',
