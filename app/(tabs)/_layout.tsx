@@ -54,11 +54,12 @@ function BottomTabBar({ state, descriptors, navigation }:BottomTabBarProps) {
                         testID={options.tabBarTestID}
                         onPress={onPress}
                         onLongPress={onLongPress}
-                        style={{ flex: 1 ,paddingVertical:40,justifyContent:'center',alignItems:'center'}}
+                        style={{ flex: 1,backgroundColor:'#ffffff' ,paddingTop:20,paddingBottom:40,justifyContent:'center',alignItems:'center'}}
                     >
                         {icon}
                         <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
-                            {label || ''}
+                            {/*@ts-ignore*/}
+                            {label}
                         </Text>
                     </TouchableOpacity>
                 );
