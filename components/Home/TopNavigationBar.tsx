@@ -1,5 +1,11 @@
 import React from "react";
-import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 import { Feather, Ionicons } from "@expo/vector-icons"; // Icons from Expo's icon library
 
 interface TopNavigationBarProps {
@@ -35,17 +41,23 @@ const TopNavigationBar = ({
           style={styles.searchInput}
           placeholder="Music"
           placeholderTextColor="gray"
-          onFocus={handleOnSearchPress}
+          onPressIn={handleOnSearchPress}
         />
       </View>
 
-      {/* Microphone Icon */}
-      <TouchableOpacity
-        onPress={handleNavigationToAudioRecognizer}
-        style={styles.iconContainer}
-      >
-        <Ionicons name="mic-outline" size={24} color="black" />
-      </TouchableOpacity>
+      {variant === "landing" && (
+        <TouchableOpacity
+          onPress={handleNavigationToAudioRecognizer}
+          style={styles.iconContainer}
+        >
+          <Ionicons name="mic-outline" size={24} color="black" />
+        </TouchableOpacity>
+      )}
+      {variant === "search" && (
+        <TouchableOpacity>
+          <Text>Search</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

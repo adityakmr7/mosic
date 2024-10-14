@@ -1,7 +1,8 @@
 import IconButton from './IconButton';
 import PrimaryButton from './PrimaryButton';
-
-export default  {
+import PillButton from './PillButton';
+export default {
     IconButton,
-    PrimaryButton
+    PrimaryButton,
+    PillButton
 }
